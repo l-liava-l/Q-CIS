@@ -1,16 +1,31 @@
 
 
 div(style="margin-top: 100px")
-    div(class="row col-md-8 col-md-offset-3 noPadding")
-        div(class="col-xs-12 col-sm-6 col-md-8")
+    div(class="row col-md-8 col-md-offset-3 col-adaptive-padding")
+
+        div(class="col-xs-6 col-sm-6 col-md-8")
             h1(class="noMargin") <small>Файлы</small>
 
-        label(class="input-file-custom btn btn-primary col-xs-3 col-sm-3 col-md-2 ") + file
+        label(class="input-file-custom btn btn-primary col-xs-3 col-sm-3 col-md-2 ") <i class="icon icon-left"> + </i> файл
             input(type="file" id="input-file" ng-file-select="onFileSelect($files)" multiple)
 
 
     div(ng-file-drop="onFileSelect($files)" ng-file-drag-over-class=""
-          class="drop-zone text-center col-md-8 col-md-offset-3 m-top-10") Drop files here
+          class="drop-zone col-md-8 col-md-offset-3 m-top-10 padding-20")
+        div(class="m-bottom-10" ng-repeat="file in model.selected track by $index")
+            div {{file.name}}
+            div(class="note") Сергей Попов 25.12.1941 в 12.59
 
-    div(class="text-right col-md-8 col-md-offset-3 m-top-10")
-        a(class="border-dotted") Посмотреть все
+            div(class="a-underline")
+                a Скачать
+                a(class="margin-left-20") Новая версия
+                a(class="margin-left-20") История
+
+    div(ng-show="model.files.length > 2")
+        div(class="text-right col-md-8 col-md-offset-3 m-top-10" ng-show="!model.show")
+            a(class="border-dotted" ng-click="showList()") Посмотреть все
+
+        div(class="text-right col-md-8 col-md-offset-3 m-top-10" ng-show="model.show")
+            a(class="border-dotted" ng-click="hideList()") Скрыть все
+
+

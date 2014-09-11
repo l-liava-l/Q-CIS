@@ -27,10 +27,23 @@ App.config([
   var model;
   $scope.model = model = {
     files: [],
-    user: 'Юлия'
+    show: false
   };
-  return $scope.onFileSelect = function($files) {
-    return $scope.model.files = model.files.concat($files);
+  $scope.onFileSelect = function($files) {
+    model.files = $files.concat(model.files);
+    if ((!model.show && model.files.length <= 2) || model.show) {
+      return $scope.showList();
+    } else {
+      return $scope.hideList();
+    }
+  };
+  $scope.showList = function() {
+    model.selected = model.files;
+    return model.show = true;
+  };
+  return $scope.hideList = function() {
+    model.selected = [model.files[0], model.files[1]];
+    return model.show = false;
   };
 });
 ;

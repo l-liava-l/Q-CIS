@@ -2,11 +2,24 @@ App.controller 'MainCtrl', ($scope) ->
 
   $scope.model = model =
     files: []
-    user: 'Юлия'
+    show: false
+
 
   $scope.onFileSelect = ($files) ->
-    $scope.model.files = model.files.concat($files)
+    model.files = $files.concat(model.files)
+    if (!model.show and model.files.length <= 2) or model.show
+      $scope.showList()
+    else
+      $scope.hideList()
 
+
+  $scope.showList = ->
+    model.selected = model.files
+    model.show = true
+
+  $scope.hideList = ->
+    model.selected = [model.files[0], model.files[1]]
+    model.show = false
 
 
 
