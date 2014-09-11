@@ -1,12 +1,16 @@
 
 
-div
-    div(class="row col-md-8 col-md-offset-3")
-        div(class="col-xs-12 col-sm-6 col-md-8") Файл
+div(style="margin-top: 100px")
+    div(class="row col-md-8 col-md-offset-3 noPadding")
+        div(class="col-xs-12 col-sm-6 col-md-8")
+            h1(class="noMargin") <small>Файлы</small>
 
         label(class="input-file-custom btn btn-primary col-xs-3 col-sm-3 col-md-2 ") + file
             input(type="file" id="input-file" ng-file-select="onFileSelect($files)" multiple)
 
 
     div(ng-file-drop="onFileSelect($files)" ng-file-drag-over-class=""
-          class="drop-zone text-center col-md-8 col-md-offset-3") Drop files here
+          class="drop-zone text-center col-md-8 col-md-offset-3 m-top-10") Drop files here
+
+    div(class="text-right col-md-8 col-md-offset-3 m-top-10")
+        a(class="border-dotted") Посмотреть все
