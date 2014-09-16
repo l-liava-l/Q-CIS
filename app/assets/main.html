@@ -1,0 +1,22 @@
+
+<div class="m-top-100">
+  <div class="row col-md-8  col-adaptive-padding">
+    <div class="col-xs-6 col-sm-6 col-md-8">
+      <h1 class="noMargin"><small>Файлы</small></h1>
+    </div>
+    <label class="input-file-custom btn btn-primary col-xs-3 col-sm-3 col-md-2 "><i class="icon icon-left"> + </i> файл
+      <input type="file" id="input-file" ng-file-select="vm.onFileSelect($files)" multiple="multiple"/>
+    </label>
+  </div>
+  <div ng-file-drop="vm.onFileSelect($files)" ng-file-drag-over-class="drop-zone-active" class="drop-zone col-md-8 m-top-10 padding-20">
+    <div ng-repeat="file in vm.selected track by $index" class="m-bottom-10">
+      <div>{{file.name}}</div>
+      <div class="note">Сергей Попов 25.12.1941 в 12.59</div>
+      <div class="a-underline"><a>Скачать</a><a class="margin-left-20">Новая версия</a><a class="margin-left-20">История</a></div>
+    </div>
+  </div>
+  <div ng-show="vm.files.length &gt; 2">
+    <div ng-show="!vm.show" class="text-right col-md-8 col-md-offset-3 m-top-10"><a ng-click="vm.showList()" class="border-dotted">Посмотреть все</a></div>
+    <div ng-show="vm.show" class="text-right col-md-8 col-md-offset-3 m-top-10"><a ng-click="vm.hideList()" class="border-dotted">Скрыть все</a></div>
+  </div>
+</div>

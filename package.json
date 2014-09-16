@@ -21,6 +21,7 @@
     "jaded-brunch": "^1.7.11",
     "javascript-brunch": ">= 1.0 < 1.8",
     "karma": "~0.9.4",
+    "less-brunch": "^1.7.2",
     "react-brunch": "~1.0.6",
     "stylus-brunch": ">= 1.0 < 1.8",
     "uglify-js-brunch": ">= 1.0 < 1.8"

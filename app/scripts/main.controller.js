@@ -14,7 +14,6 @@
         vm.hideList = hideList;
 
 
-
         function onFileSelect($files) {
             vm.files = $files.concat(vm.files);
             ((!vm.show && vm.files.length <= 2) || vm.show) ? showList() : hideList();
