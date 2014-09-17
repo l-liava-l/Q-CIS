@@ -15,6 +15,7 @@
         vm.showList = showList;
         vm.hideList = hideList;
 
+        ////////////////////////////////////////
 
         function onFileSelect($files) {
             vm.files = $files.concat(vm.files);
